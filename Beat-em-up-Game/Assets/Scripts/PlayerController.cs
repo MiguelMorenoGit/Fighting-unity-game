@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-    // kakakakakaka2
-    //kakakakakkaaaaaaaaaaaaaaaaa
+    
+    // ultimo commit shit!!!
     //Variables movimiento
     public float horizontalMove;
     public float verticalMove;
