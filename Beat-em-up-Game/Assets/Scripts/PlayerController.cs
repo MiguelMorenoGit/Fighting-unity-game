@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     //Miguel!!!!!!
-    //Miguel2!!
+    //Miguel2!!!!!!!
 
     //Variables movimiento
     public float horizontalMove;
