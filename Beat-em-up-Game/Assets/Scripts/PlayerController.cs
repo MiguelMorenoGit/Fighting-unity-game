@@ -74,10 +74,10 @@ public class PlayerController : MonoBehaviour {
 
         player.Move(movePlayer * Time.deltaTime); // iniciamos el movimiento del player
 
-        Debug.Log(player.velocity.magnitude);
-        Debug.Log(direction);
-
- 
+        // Debug.Log(player.velocity.magnitude);
+        // Debug.Log(direction);
+        Debug.Log(player.transform);
+        
     }
 
     // Funcion camara
@@ -106,6 +106,7 @@ public class PlayerController : MonoBehaviour {
         }
         if (!player.isGrounded && Input.GetButtonDown("Fire1")) {
             playerAnimatorController.SetTrigger("PlayerJumpKick");
+            
         }
 
         if (player.isGrounded && Input.GetButtonDown("Fire1")) {
