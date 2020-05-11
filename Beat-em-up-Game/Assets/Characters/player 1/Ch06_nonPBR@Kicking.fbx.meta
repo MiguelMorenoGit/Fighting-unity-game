@@ -1,52 +1,12 @@
 fileFormatVersion: 2
-guid: 3d1baf5afbb584f40b0c690219c9e97a
+guid: abf20a6aa9848a34f9faf1041ce48527
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: mixamo.com
-  externalObjects:
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch06_1001_Diffuse
-    second: {fileID: 2800000, guid: 944554429404da34093b3e6d191bed6b, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch06_1001_Glossiness
-    second: {fileID: 2800000, guid: e653e16e4005a9848923f05e036955b7, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch06_1001_Normal
-    second: {fileID: 2800000, guid: 402fe053601a82847b83bb198df359ed, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch06_1001_Specular
-    second: {fileID: 2800000, guid: ad70103df9a8de64fb46f5664fbfcc30, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch06_1002_Diffuse
-    second: {fileID: 2800000, guid: 285952e47a79c8940851d7342bd30897, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch06_1002_Glossiness
-    second: {fileID: 2800000, guid: a41c3e6bd811cae448c3bf9e0e5be426, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch06_1002_Normal
-    second: {fileID: 2800000, guid: cefe7f05423914e4d8fc0a652ca0993c, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch06_1002_Specular
-    second: {fileID: 2800000, guid: ff234964407b9eb488fd4ff706a70c32, type: 3}
+    second: Kicking
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -64,8 +24,8 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    importAnimatedCustomProperties: 0
-    importConstraints: 0
+    importAnimatedCustomProperties: 1
+    importConstraints: 1
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -75,19 +35,19 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: mixamo.com
+      name: Kicking
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 1
+      lastFrame: 13
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 1
+      loopTime: 0
+      loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -111,10 +71,10 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importVisibility: 0
+    importVisibility: 1
     importBlendShapes: 1
-    importCameras: 0
-    importLights: 0
+    importCameras: 1
+    importLights: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -139,21 +99,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - a910b1fd2718809489b857bab3f5fc2e
-  - 39c7799ff21d98840ab3aac6f48bbf06
-  - df51f62133166cf4b92a3b266ca35d5b
-  - 50f08cefa3259154eb6c0479eb15936b
-  - 55b89b0828a1d484b95682058d3813e8
-  - e7ec12b40883dec428b07f58ae48f0f6
-  - 85a1c860484bfd04e844e01a7e75b9e6
-  - abf20a6aa9848a34f9faf1041ce48527
-  - 151153216121c0e418b0d97add7d1aed
-  - 838f2a2ba2e110746b8870d56bcf82cd
-  - aa460fc2e33d18d4ca0a64d72723ac46
-  - 85568a5caf050b949bfd6a03c31f79f4
-  - 8d9821e428484da4aace201192dbb7ed
-  - 9b4fbf8f942deb142845143acef8d533
+  referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3

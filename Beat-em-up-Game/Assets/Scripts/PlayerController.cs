@@ -4,33 +4,33 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
     
-    // ultimo commit shit!!!
     //Variables movimiento
     public float horizontalMove;
     public float verticalMove;
+
     private Vector3 playerInput;
 
     public CharacterController player;
-
     public float playerSpeed;
-    private Vector3 movePlayer;
-    private Vector3 direction;
     public float gravity = 9.8f;
     public float fallVelocity;
     public float jumpForce;
-    //Variables Animacion
-    public Animator playerAnimatorController;
-
-    //Variables camara
+    
+    //Variables movimiento relativo a camara
     public Camera mainCamera;
     private Vector3 camForward;
     private Vector3 camRight;
+    private Vector3 movePlayer;
+    private Vector3 direction;
 
     //Variables fisicas - TODO solucionar el tema pendientes y activar
     // public bool isOnSlope = false;
     // private Vector3 hitNormal;
     // public float slideVelocity;
     // public float slopeForceDown;
+
+    //Variables Animacion
+    public Animator playerAnimatorController;
 
     // Start is called before the first frame update
     void Start() {
@@ -47,30 +47,36 @@ public class PlayerController : MonoBehaviour {
         playerInput = new Vector3(horizontalMove,0,verticalMove); // los almacenamos en Vector3
         playerInput = Vector3.ClampMagnitude(playerInput, 1); // Y limitamos su magnitud a 1 para evitar acelerones en movimientos diagonales
 
+        playerAnimatorController.SetFloat("PlayerWalkVelocity", playerInput.magnitude * playerSpeed);
         //Decimos en que direccion mirara el personaje
         CamDirection();
 
-        movePlayer = playerInput.x * camRight + playerInput.z * camForward;
-        movePlayer = playerInput * playerSpeed;
-        player.transform.LookAt(player.transform.position + movePlayer);
+        movePlayer = playerInput.x * camRight + playerInput.z * camForward; // almacenamos en moveplayer el vector de movimiento corregido con respecto a posicion de camara
+
+        // velocidad del player en funcion de si esta en el aire o no
+        if (player.isGrounded){
+
+            movePlayer = playerInput * playerSpeed;
+
+        } else {
+
+            movePlayer = playerInput * playerSpeed * 1.5f;
+        }
+        player.transform.LookAt(player.transform.position + movePlayer); // asignamos hacia donde va a mirar el jugador
 
         //classic 2d movement 
         //direction = player.transform.position + new Vector3(0,0, horizontalMove); //classic 2d movement
         //player.transform.LookAt(direction);
 
-        //Iniciamos Gravedad
-        SetGravity();
-        //Iniciamos las skills
-        PLayerSkills();
-
-
+        SetGravity();  //Iniciamos Gravedad
+        
+        PLayerSkills(); //Iniciamos las skills
 
         player.Move(movePlayer * Time.deltaTime); // iniciamos el movimiento del player
 
         Debug.Log(player.velocity.magnitude);
         Debug.Log(direction);
 
-        // playerAnimatorController.SetFloat("PlayerWalkVelocity", playerInput.velocity.magnitud * playerSpeed);
  
     }
 
@@ -98,6 +104,14 @@ public class PlayerController : MonoBehaviour {
 
             playerAnimatorController.SetTrigger("PlayerJump");
         }
+        if (!player.isGrounded && Input.GetButtonDown("Fire1")) {
+            playerAnimatorController.SetTrigger("PlayerJumpKick");
+        }
+
+        if (player.isGrounded && Input.GetButtonDown("Fire1")) {
+            playerAnimatorController.SetTrigger("PlayerPunch");
+        }
+
     }
 
     //Funcion para la Gravedad
@@ -114,11 +128,11 @@ public class PlayerController : MonoBehaviour {
 
             fallVelocity -= gravity * Time.deltaTime;
             movePlayer.y = fallVelocity;
-            // playerAnimatorController.SetFloat("PlayerVerticalVelocity", player.velocity.y);
+            playerAnimatorController.SetFloat("PlayerVerticalVelocity", player.velocity.y);
         }
 
         // SlideDown(); T0DO hacer que funcione bien cuando estas frente a un angulo recto(pared,escalones etc)
-        // playerAnimationController.SetBool("IsGrounded", player.isGrounded);
+        playerAnimatorController.SetBool("IsGrounded", player.isGrounded);
     }
 
     // public void SlideDown() { 
@@ -136,5 +150,11 @@ public class PlayerController : MonoBehaviour {
     // private void OnControllerColliderHit(ControllerColliderHit hit) {
     //     hitNormal = hit.normal;
     // }
+
+    private void OnAnimatorMove(){
+
+    }
+
+
 
 }
