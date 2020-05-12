@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour {
 
         // velocidad del player en funcion de si esta en el aire o no
         if (player.isGrounded){
+            
 
             movePlayer = playerInput * playerSpeed;
 
