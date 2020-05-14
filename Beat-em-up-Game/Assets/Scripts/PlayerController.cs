@@ -105,13 +105,18 @@ public class PlayerController : MonoBehaviour {
 
             playerAnimatorController.SetTrigger("PlayerJump");
         }
-        if (!player.isGrounded && Input.GetButtonDown("Fire1")) {
+        if (!player.isGrounded && Input.GetKeyDown(KeyCode.X)) {
             playerAnimatorController.SetTrigger("PlayerJumpKick");
+            
             
         }
 
-        if (player.isGrounded && Input.GetButtonDown("Fire1")) {
-            playerAnimatorController.SetTrigger("PlayerPunch");
+        if (player.isGrounded && Input.GetKeyDown(KeyCode.Z)) {
+            playerAnimatorController.SetTrigger("Punch1");
+        }
+
+        if(player.isGrounded && Input.GetKeyDown(KeyCode.X)) {
+            playerAnimatorController.SetTrigger("Kick1");
         }
 
     }
