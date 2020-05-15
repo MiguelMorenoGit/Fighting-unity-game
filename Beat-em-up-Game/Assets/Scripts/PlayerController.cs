@@ -41,13 +41,13 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        horizontalMove = Input.GetAxis("Horizontal");
-        verticalMove = Input.GetAxis("Vertical");
+        horizontalMove = Input.GetAxis(Axis.HORIZONTAL_AXIS);
+        verticalMove = Input.GetAxis(Axis.VERTICAL_AXIS);
 
         playerInput = new Vector3(horizontalMove,0,verticalMove); // los almacenamos en Vector3
         playerInput = Vector3.ClampMagnitude(playerInput, 1); // Y limitamos su magnitud a 1 para evitar acelerones en movimientos diagonales
 
-        playerAnimatorController.SetFloat("PlayerWalkVelocity", playerInput.magnitude * playerSpeed);
+        playerAnimatorController.SetFloat(AnimationTags.WALK_VELOCITY, playerInput.magnitude * playerSpeed);
         //Decimos en que direccion mirara el personaje
         CamDirection();
 
@@ -98,25 +98,12 @@ public class PlayerController : MonoBehaviour {
     public void PLayerSkills() {
 
         //Si estamos tocando el suelo y pulsamos el boton "Jump"
-        if (player.isGrounded && Input.GetButtonDown("Jump")) {
+        if (player.isGrounded && Input.GetKeyDown(KeyCode.Space)) {
 
             fallVelocity = jumpForce;
             movePlayer.y = fallVelocity;
 
-            playerAnimatorController.SetTrigger("PlayerJump");
-        }
-        if (!player.isGrounded && Input.GetKeyDown(KeyCode.X)) {
-            playerAnimatorController.SetTrigger("PlayerJumpKick");
-            
-            
-        }
-
-        if (player.isGrounded && Input.GetKeyDown(KeyCode.Z)) {
-            playerAnimatorController.SetTrigger("Punch1");
-        }
-
-        if(player.isGrounded && Input.GetKeyDown(KeyCode.X)) {
-            playerAnimatorController.SetTrigger("Kick1");
+            playerAnimatorController.SetTrigger(AnimationTags.JUMP_TRIGGER);
         }
 
     }
@@ -124,7 +111,7 @@ public class PlayerController : MonoBehaviour {
     //Funcion para la Gravedad
     public void SetGravity() {
 
-        movePlayer.y = -gravity * Time.deltaTime ;
+        movePlayer.y = -gravity * Time.deltaTime;
         //Si estamos tocando el suelo - isGrounded es una funcion integrada en el controller
         if (player.isGrounded){
 
@@ -135,11 +122,11 @@ public class PlayerController : MonoBehaviour {
 
             fallVelocity -= gravity * Time.deltaTime;
             movePlayer.y = fallVelocity;
-            playerAnimatorController.SetFloat("PlayerVerticalVelocity", player.velocity.y);
+            playerAnimatorController.SetFloat(AnimationTags.VERTICAL_VELOCITY, player.velocity.y);
         }
 
         // SlideDown(); T0DO hacer que funcione bien cuando estas frente a un angulo recto(pared,escalones etc)
-        playerAnimatorController.SetBool("IsGrounded", player.isGrounded);
+        playerAnimatorController.SetBool(Tags.IS_GROUNDED_TAG, player.isGrounded);
     }
 
     // public void SlideDown() { 

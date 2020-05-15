@@ -401,7 +401,7 @@ MonoBehaviour:
   horizontalMove: 0
   verticalMove: 0
   player: {fileID: 0}
-  playerSpeed: 2
+  playerSpeed: 2.5
   gravity: 30
   fallVelocity: 0
   jumpForce: 9
@@ -454,6 +454,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pushPower: 5
+--- !u!114 &487716172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487716165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1edf806116bf99d49b32eba66dea1408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  playerAnimatorController: {fileID: 0}
 --- !u!1 &598500846
 GameObject:
   m_ObjectHideFlags: 0
@@ -1850,7 +1864,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
-  m_LocalPosition: {x: -0.00000011920929, y: 2.2606018, z: -4.829629}
+  m_LocalPosition: {x: -0.000000059604645, y: 2.2606018, z: -4.829629}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2467,7 +2481,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1381099996}
   m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
-  m_LocalPosition: {x: -0.00000011920929, y: 2.2606018, z: -4.829629}
+  m_LocalPosition: {x: -0.000000059604645, y: 2.2606018, z: -4.829629}
   m_LocalScale: {x: 1, y: 0, z: 1}
   m_Children:
   - {fileID: 1888001720}
