@@ -5,6 +5,7 @@ using UnityEngine;
 public class AnimationTags {
 
     public const string MOVEMENT = "Movement";
+    public const string MOVEMENT_GUARD = "MovementGuard";
     public const string WALK_VELOCITY = "PlayerWalkVelocity";
     public const string VERTICAL_VELOCITY = "PlayerVerticalVelocity";
     
@@ -27,8 +28,9 @@ public class AnimationTags {
 
     public const string KNOCK_DOWN_TRIGGER = "KnockDown";
     public const string STAND_UP_TRIGGER = "StandUp";
-    public const string HIT_TRIGGER = "Hit";
-    public const string DEATH_TRIGEGR = "Death";
+    public const string HEAD_HIT_TRIGGER = "HeadHit";
+    public const string MEDIUM_HIT_TRIGGER = "MediumHit";
+    public const string DEATH_TRIGGER = "Death";
  
 }
 

@@ -17,6 +17,7 @@ public class PlayerAttack : MonoBehaviour
 
     public CharacterController player;
     public Animator playerAnimatorController;
+    private CharacterAnimation player_Anim;
 
     private bool activateTimerToReset;
 
@@ -28,6 +29,7 @@ public class PlayerAttack : MonoBehaviour
     void Awake() {
         player = GetComponent<CharacterController>();
         playerAnimatorController = GetComponent<Animator>();
+        player_Anim = GetComponent<CharacterAnimation>();
     }
     // Start is called before the first frame update
     void Start()
@@ -47,7 +49,7 @@ public class PlayerAttack : MonoBehaviour
         // JumpKick
         if (!player.isGrounded && Input.GetKeyDown(KeyCode.X)) {
 
-            playerAnimatorController.SetTrigger(AnimationTags.KICK_JUMP_TRIGGER);
+            player_Anim.Kick_Jump();
         }
         // Punch 1, Punch 2 , punch 3
         if (player.isGrounded && Input.GetKeyDown(KeyCode.Z)) {
@@ -63,13 +65,13 @@ public class PlayerAttack : MonoBehaviour
             current_Combo_Timer = default_Combo_Timer; // ponemos el temporizador en default
 
             if (current_Combo_State == ComboState.PUNCH_1) {
-                playerAnimatorController.SetTrigger(AnimationTags.PUNCH_1_TRIGGER);
+                player_Anim.Punch_1();
             }
             if (current_Combo_State == ComboState.PUNCH_2) {
-                playerAnimatorController.SetTrigger(AnimationTags.PUNCH_2_TRIGGER);
+                player_Anim.Punch_2();
             }
             if (current_Combo_State == ComboState.PUNCH_3) {
-                playerAnimatorController.SetTrigger(AnimationTags.PUNCH_3_TRIGGER);
+                player_Anim.Punch_3();
             }
         }
 
@@ -100,11 +102,11 @@ public class PlayerAttack : MonoBehaviour
 
             if (current_Combo_State == ComboState.KICK_1) {
 
-                playerAnimatorController.SetTrigger(AnimationTags.KICK_1_TRIGGER);
+                player_Anim.Kick_1();
             }
             if (current_Combo_State == ComboState.KICK_2) {
 
-                playerAnimatorController.SetTrigger(AnimationTags.KICK_2_TRIGGER);
+                player_Anim.Kick_2();
                 ResetComboState();
             }
         }
