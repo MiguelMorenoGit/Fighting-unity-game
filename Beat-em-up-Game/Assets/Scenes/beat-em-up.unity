@@ -3406,6 +3406,16 @@ PrefabInstance:
       propertyPath: attack_Distance
       value: 1.2
       objectReference: {fileID: 0}
+    - target: {fileID: 2734299286913268331, guid: 7fe4cbb47ddf85e4c948eed31feaa0a0,
+        type: 3}
+      propertyPath: waitBeforeMove_Time
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2734299286913268331, guid: 7fe4cbb47ddf85e4c948eed31feaa0a0,
+        type: 3}
+      propertyPath: default_Attack_Time
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8267805232480914417, guid: 7fe4cbb47ddf85e4c948eed31feaa0a0,
         type: 3}
       propertyPath: m_LocalPosition.x

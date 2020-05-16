@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour {
     private Transform playerTarget;
     private CharacterAnimation enemy_Anim;
     private Rigidbody myBody;
+    private Animator animator;
 
     // public variables
     public float speed = 5f;
@@ -15,8 +16,10 @@ public class EnemyMovement : MonoBehaviour {
 
     // private variables
     private float chase_Player_After_Attack = 1f;
+    private float default_Attack_Time = 1.8f;
+    private float waitBeforeMove_Time = 1.5f;
     private float current_Attack_Time;
-    private float default_Attack_Time = 2f;
+    private float numberOfAttacks;
     private bool followPlayer;
     private bool attackPlayer;
 
@@ -24,6 +27,7 @@ public class EnemyMovement : MonoBehaviour {
         enemy_Anim = GetComponentInChildren<CharacterAnimation>();
         myBody = GetComponent<Rigidbody>();
         playerTarget = GameObject.FindWithTag(Tags.PLAYER_TAG).transform;
+        animator = GetComponentInChildren<Animator>();
     }
 
     // Start is called before the first frame update
@@ -31,6 +35,7 @@ public class EnemyMovement : MonoBehaviour {
     {
         followPlayer = true;
         current_Attack_Time = default_Attack_Time;
+        numberOfAttacks = 0f;
     }
 
     // Update is called once per frame
@@ -63,6 +68,7 @@ public class EnemyMovement : MonoBehaviour {
 
             followPlayer = false;
             attackPlayer = true;
+            numberOfAttacks = 0f;
         }
     }
 
@@ -75,19 +81,38 @@ public class EnemyMovement : MonoBehaviour {
         current_Attack_Time += Time.deltaTime;
         transform.LookAt(new Vector3(playerTarget.position.x, 0, playerTarget.position.z));
 
-        if (current_Attack_Time > default_Attack_Time) {
+        if(numberOfAttacks == 0){ //  no queremos que espere para realizar el primer ataque
+            enemy_Anim.EnemyAttack(Random.Range(0, 3)); // el 3 nunca estara incluido si tuvieramos 4 aatques deberiamos poner 5
+            Debug.Log(animator.GetCurrentAnimatorClipInfo(0)[0].clip.name); 
+            current_Attack_Time = 0f;
+            numberOfAttacks++;
+        }
+
+        if (current_Attack_Time > default_Attack_Time && numberOfAttacks > 0) { // si realiza mas de un ataque seguido que espere un tiempo default entre ataques
             enemy_Anim.EnemyAttack(Random.Range(0, 3)); // el 3 nunca estara incluido si tuvieramos 4 aatques deberiamos poner 5
             current_Attack_Time = 0f;
+            numberOfAttacks++;
+            // StartCoroutine(WaitAndTakeClip());
         }
 
         if (Vector3.Distance(transform.position, playerTarget.position) > 
                 attack_Distance + chase_Player_After_Attack) {
 
             attackPlayer = false;
-            followPlayer = true;
+            StartCoroutine(WaitBeforeMove());
+            
+            
         }
 
-
-
     }
+
+    IEnumerator WaitBeforeMove(){
+        yield return new WaitForSeconds(waitBeforeMove_Time);
+        followPlayer = true;
+    }
+
+    // IEnumerator WaitAndTakeClip(){
+    //     yield return new WaitForSeconds(0.1f);
+    //     Debug.Log(animator.GetCurrentAnimatorClipInfo(0)[0].clip.name);
+    // }
 }
