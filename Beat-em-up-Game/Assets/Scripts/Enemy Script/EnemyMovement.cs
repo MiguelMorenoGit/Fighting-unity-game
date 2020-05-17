@@ -83,7 +83,7 @@ public class EnemyMovement : MonoBehaviour {
 
         if(numberOfAttacks == 0){ //  no queremos que espere para realizar el primer ataque
             enemy_Anim.EnemyAttack(Random.Range(0, 3)); // el 3 nunca estara incluido si tuvieramos 4 aatques deberiamos poner 5
-            Debug.Log(animator.GetCurrentAnimatorClipInfo(0)[0].clip.name); 
+            // Debug.Log(animator.GetCurrentAnimatorClipInfo(0)[0].clip.name); 
             current_Attack_Time = 0f;
             numberOfAttacks++;
         }

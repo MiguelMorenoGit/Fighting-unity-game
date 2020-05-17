@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour {
 
         // Debug.Log(player.velocity.magnitude);
         // Debug.Log(direction);
-        Debug.Log(player.transform);
+        // Debug.Log(player.transform);
         
     }
 

@@ -9,8 +9,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: dc67e141ea220724384b0f7d330ba1ad,
-      type: 3}
+    m_Motion: {fileID: 7400000, guid: fd0ec5e2ae2ea21448a396d6c9bfcd4a, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1.8
@@ -19,7 +18,7 @@ BlendTree:
     m_Mirror: 0
   m_BlendParameter: PlayerWalkVelocity
   m_BlendParameterY: PlayerWalkVelocity
-  m_MinThreshold: 0
+  m_MinThreshold: 1
   m_MaxThreshold: 1
   m_UseAutomaticThresholds: 1
   m_NormalizedBlendValues: 0
@@ -675,8 +674,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: 99728079d5ddb964d96b797b12f2b8e5,
-      type: 3}
+    m_Motion: {fileID: 7400000, guid: 37b99ccebe486494abb66ac5a169514a, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 2.5
@@ -685,7 +683,7 @@ BlendTree:
     m_Mirror: 0
   m_BlendParameter: PlayerWalkVelocity
   m_BlendParameterY: PlayerWalkVelocity
-  m_MinThreshold: 0
+  m_MinThreshold: 1
   m_MaxThreshold: 1
   m_UseAutomaticThresholds: 1
   m_NormalizedBlendValues: 0
@@ -749,8 +747,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: a709d23c02a09a040ae73bc65d934eb8,
-      type: 3}
+    m_Motion: {fileID: 7400000, guid: ac170e3fb357c8e4e9c1d877472a8bf4, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 3.3
@@ -759,7 +756,7 @@ BlendTree:
     m_Mirror: 0
   m_BlendParameter: PlayerWalkVelocity
   m_BlendParameterY: PlayerWalkVelocity
-  m_MinThreshold: 0
+  m_MinThreshold: 1
   m_MaxThreshold: 1
   m_UseAutomaticThresholds: 1
   m_NormalizedBlendValues: 0
@@ -970,17 +967,16 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: 7b3f67d865533094eb7c07f80551c9c2,
-      type: 3}
+    m_Motion: {fileID: 7400000, guid: d1b0950065c57bd4193e61a63f9988a0, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
-    m_TimeScale: 2.8
+    m_TimeScale: 1.9
     m_CycleOffset: 0
     m_DirectBlendParameter: PlayerWalkVelocity
     m_Mirror: 0
   m_BlendParameter: PlayerWalkVelocity
   m_BlendParameterY: PlayerWalkVelocity
-  m_MinThreshold: 0
+  m_MinThreshold: 1
   m_MaxThreshold: 1
   m_UseAutomaticThresholds: 1
   m_NormalizedBlendValues: 0
@@ -1305,8 +1301,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: 7d0e9b8c34de22a428e32693d553c772,
-      type: 3}
+    m_Motion: {fileID: 7400000, guid: 0b85b37272440df4694499539a068066, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1.8
@@ -1315,7 +1310,7 @@ BlendTree:
     m_Mirror: 0
   m_BlendParameter: PlayerVerticalVelocity
   m_BlendParameterY: PlayerWalkVelocity
-  m_MinThreshold: 0
+  m_MinThreshold: 1
   m_MaxThreshold: 1
   m_UseAutomaticThresholds: 1
   m_NormalizedBlendValues: 0
