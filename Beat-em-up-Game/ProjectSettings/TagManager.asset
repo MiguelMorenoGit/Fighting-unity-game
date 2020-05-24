@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - NormalHit
+  - KnockDownHit
+  - Punch1Tag
+  - Punch2Tag
+  - Punch3Tag
+  - Kick1Tag
+  - Kick2Tag
+  - PlayerJumpKickTag
   layers:
   - Default
   - TransparentFX

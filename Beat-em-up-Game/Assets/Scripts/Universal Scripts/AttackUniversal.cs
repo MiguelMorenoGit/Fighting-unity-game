@@ -6,11 +6,11 @@ public class AttackUniversal : MonoBehaviour {
 
     public LayerMask collisionLayer;
     public float radius = 1f;
-    public float damage = 2f;
-
+    public float damage = 10f;
+    
     public bool is_Player, is_Enemy;
 
-    public GameObject hit_FX_Prefab;
+    // public GameObject hit_FX_Prefab;
 
 
     // Start is called before the first frame update
@@ -34,22 +34,34 @@ public class AttackUniversal : MonoBehaviour {
 
             if (is_Player) {
 
-                Vector3 hitFX_Pos = hit[0].transform.position;
-                hitFX_Pos.y += 1.3f;
+                // Vector3 hitFX_Pos = hit[0].transform.position;
+                // hitFX_Pos.y += 1.3f;
 
-                if(hit[0].transform.forward.x > 0) {
-                    hitFX_Pos.x += 0.3f;
-                } else if (hit[0].transform.forward.x < 0) {
-                    hitFX_Pos.x -= 0.3f;
+                // if(hit[0].transform.forward.x > 0) {
+                //     hitFX_Pos.x += 0.3f;
+                // } else if (hit[0].transform.forward.x < 0) {
+                //     hitFX_Pos.x -= 0.3f;
+                // }
+
+                // Instantiate(hit_FX_Prefab, hitFX_Pos, Quaternion.identity);
+
+                if(gameObject.CompareTag(Tags.PUNCH_3_TAG) ||
+                    gameObject.CompareTag(Tags.KICK_2_TAG) ||
+                    gameObject.CompareTag(Tags.KICK_JUMP_TAG)) {
+
+                    hit[0].GetComponent<HealthScript>().ApplyDamage(damage, true);
+
+                } else {
+                    hit[0].GetComponent<HealthScript>().ApplyDamage(damage, false);
                 }
 
-                Instantiate(hit_FX_Prefab, hitFX_Pos, Quaternion.identity);
-
-                // if(gameObject.CompareTag(Tags.))
-            }
+            } // if is player
             print("We Hit the " + hit[0].gameObject.name);
 
             gameObject.SetActive(false);
-        }
-    }
+
+        } // if we have a hit
+
+    } // detect collision
+
 }

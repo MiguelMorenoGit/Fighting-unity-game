@@ -28,8 +28,8 @@ public class PlayerAttack : MonoBehaviour
 
     void Awake() {
         player = GetComponent<CharacterController>();
-        playerAnimatorController = GetComponent<Animator>();
-        player_Anim = GetComponent<CharacterAnimation>();
+        playerAnimatorController = GetComponentInChildren<Animator>();
+        player_Anim = GetComponentInChildren<CharacterAnimation>();
     }
     // Start is called before the first frame update
     void Start()

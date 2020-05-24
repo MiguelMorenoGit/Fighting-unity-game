@@ -46,9 +46,17 @@ public class Tags {
     public const string PLAYER_TAG = "Player";  
     public const string ENEMY_TAG = "Enemy"; 
 
-    public const string LEFT_ARM_TAG = "LeftArm";
-    public const string LEFT_LEG_TAG = "LeftLeg";
-    public const string UNTAGGED_TAG = "Untagged";
+    // public const string NORMAL_HIT_TAG = "NormalHit";
+    // public const string KNOCKDOWN_HIT_TAG = "KnockDownHit";
+    // public const string UNTAGGED_TAG = "Untagged";
+    public const string PUNCH_1_TAG = "Punch1Tag";
+    public const string PUNCH_2_TAG = "Punch2Tag";
+    public const string PUNCH_3_TAG = "Punch3Tag";
+
+    public const string KICK_1_TAG = "Kick1Tag";
+    public const string KICK_2_TAG = "Kick2Tag";
+    public const string KICK_JUMP_TAG = "PlayerJumpKickTag";
+
     public const string MAIN_CAMERA_TAG = "MainCamera";
     public const string HEALTH_UI_TAG = "HealthUI";
 
