@@ -9,6 +9,7 @@ public class EnemyMovement : MonoBehaviour {
     private CharacterAnimation enemy_Anim;
     private Rigidbody myBody;
     private Animator animator;
+    private HealthScript playerHealth;
 
     // public variables
     public float speed = 5f;
@@ -20,7 +21,7 @@ public class EnemyMovement : MonoBehaviour {
     private float waitBeforeMove_Time = 1.5f;
     private float current_Attack_Time;
     private float numberOfAttacks;
-    private bool followPlayer;
+    public bool followPlayer;
     private bool attackPlayer;
 
     private void Awake() {
@@ -28,6 +29,7 @@ public class EnemyMovement : MonoBehaviour {
         myBody = GetComponent<Rigidbody>();
         playerTarget = GameObject.FindWithTag(Tags.PLAYER_TAG).transform;
         animator = GetComponentInChildren<Animator>();
+        playerHealth = GetComponent<HealthScript>();
     }
 
     // Start is called before the first frame update
@@ -51,25 +53,30 @@ public class EnemyMovement : MonoBehaviour {
         if (!followPlayer) {
             return;
         }
-        if (Vector3.Distance(transform.position, playerTarget.position) > attack_Distance) {
+        // if(!playerHealth.characterDied) {
 
-            transform.LookAt(new Vector3(playerTarget.position.x, 0, playerTarget.position.z));
-            myBody.velocity = transform.forward * speed;
+            if (Vector3.Distance(transform.position, playerTarget.position) > attack_Distance) {
 
-            if (myBody.velocity.sqrMagnitude != 0) { // comprobamos que nos estamos moviendo
-                enemy_Anim.Walk(true);
+                transform.LookAt(new Vector3(playerTarget.position.x, 0, playerTarget.position.z));
+                myBody.velocity = transform.forward * speed;
+
+                if (myBody.velocity.sqrMagnitude != 0) { // comprobamos que nos estamos moviendo
+                    enemy_Anim.Walk(true);
+                }
+
+
+            } else if ( Vector3.Distance(transform.position, playerTarget.position) <= attack_Distance) {
+                
+                myBody.velocity = Vector3.zero;
+                enemy_Anim.Walk(false);
+
+                followPlayer = false;
+                attackPlayer = true;
+                numberOfAttacks = 0f;
             }
-
-
-        } else if ( Vector3.Distance(transform.position, playerTarget.position) <= attack_Distance) {
-            
-            myBody.velocity = Vector3.zero;
-            enemy_Anim.Walk(false);
-
-            followPlayer = false;
-            attackPlayer = true;
-            numberOfAttacks = 0f;
-        }
+        // } else {
+        //     return;
+        // }
     }
 
     void Attack() {

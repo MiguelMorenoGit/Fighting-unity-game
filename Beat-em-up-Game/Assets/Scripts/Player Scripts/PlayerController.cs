@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour {
     public float gravity = 9.8f;
     public float fallVelocity;
     public float jumpForce;
+    public bool playerCanMove = true;
     
     //Variables movimiento relativo a camara
     public Camera mainCamera;
@@ -28,6 +29,9 @@ public class PlayerController : MonoBehaviour {
     // private Vector3 hitNormal;
     // public float slideVelocity;
     // public float slopeForceDown;
+
+    private AnimatorClipInfo[] currentAnimation;
+    public string clipName;
 
     //Variables Animacion
     public Animator playerAnimatorController;
@@ -54,10 +58,18 @@ public class PlayerController : MonoBehaviour {
         movePlayer = playerInput.x * camRight + playerInput.z * camForward; // almacenamos en moveplayer el vector de movimiento corregido con respecto a posicion de camara
 
         // velocidad del player en funcion de si esta en el aire o no
-        if (player.isGrounded){
+        // comprobamos si el player esta en posicion de moverse
+
+        CheckPlayerCanMove();
+
+        if (player.isGrounded && playerCanMove){
             
 
             movePlayer = playerInput * playerSpeed;
+
+        } else if (player.isGrounded && !playerCanMove) {
+
+            movePlayer = playerInput * 0f;
 
         } else {
 
@@ -127,6 +139,20 @@ public class PlayerController : MonoBehaviour {
 
         // SlideDown(); T0DO hacer que funcione bien cuando estas frente a un angulo recto(pared,escalones etc)
         playerAnimatorController.SetBool(Tags.IS_GROUNDED_TAG, player.isGrounded);
+    }
+
+    private void CheckPlayerCanMove() {
+
+        currentAnimation = playerAnimatorController.GetCurrentAnimatorClipInfo(0);
+        clipName = currentAnimation[0].clip.name;
+
+        if(clipName.Trim() == "Standard Walk" || clipName.Trim() == "Idle"){
+            playerCanMove = true;
+
+        } else {
+            playerCanMove = false;
+        }
+
     }
 
     // public void SlideDown() { 

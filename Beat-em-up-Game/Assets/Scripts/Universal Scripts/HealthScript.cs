@@ -11,12 +11,15 @@ public class HealthScript : MonoBehaviour {
     // PRIVATE
     private CharacterAnimation animationScript;
     private EnemyMovement enemyMovement;
-    private bool characterDied;
+
+    public bool characterDied; // prueba
+    public bool characterKnockdown; // prueba
 
     // METHODS
     private void Awake() {
 
         animationScript = GetComponentInChildren<CharacterAnimation>();
+        enemyMovement = GetComponent<EnemyMovement>();
     }
 
     public void ApplyDamage(float damage, bool knockDown) {
@@ -32,6 +35,7 @@ public class HealthScript : MonoBehaviour {
         if(health <= 0f) {
             animationScript.Death();
             characterDied = true;
+            enemyMovement.enabled= false;
 
             // if is player deactivate enemy script
             if(is_Player) {
